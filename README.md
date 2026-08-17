@@ -17,8 +17,12 @@ with Claude Code, Cursor, and other agents that read `SKILL.md`.
 With the skills CLI:
 
 ```bash
-npx skills add <github-user>/skills/review-gitlab
+npx skills add thisfrontenddev/skills/skills/review-gitlab
+npx skills add thisfrontenddev/skills/skills/review-github
 ```
+
+The path after the repo name is resolved from the repo root, so the `skills/`
+directory is part of it — `thisfrontenddev/skills/review-github` finds nothing.
 
 Or clone and symlink a skill into your agent's skills directory:
 
