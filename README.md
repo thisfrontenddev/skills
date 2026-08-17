@@ -10,6 +10,7 @@ with Claude Code, Cursor, and other agents that read `SKILL.md`.
 | Skill | Description |
 |-------|-------------|
 | [`review-gitlab`](skills/review-gitlab/) | Two-phase deep code review of a GitLab merge request, posting only user-approved comments. Talks to GitLab through an embedded zero-dependency Node CLI — no MCP server required. |
+| [`review-github`](skills/review-github/) | The same two-phase deep review for a GitHub pull request, driven by the `gh` CLI. |
 
 ## Install
 
@@ -39,6 +40,17 @@ The skill drives `skills/review-gitlab/scripts/gitlab.mjs`, a zero-dependency CL
 (Node 18+, built-in `fetch`) covering projects, merge requests, diffs, discussions,
 diff comments, issues, and note create/edit/delete. Run `node scripts/gitlab.mjs`
 with no arguments to list commands.
+
+## review-github
+
+Requires the [GitHub CLI](https://cli.github.com/) authenticated with `repo` scope:
+
+```bash
+gh auth login
+```
+
+No embedded script — the skill drives `gh pr view`, `gh pr diff`, `gh pr comment`, and
+`gh api` for inline review comments and edits.
 
 ## License
 
