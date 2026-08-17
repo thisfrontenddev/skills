@@ -17,17 +17,17 @@ with Claude Code, Cursor, and other agents that read `SKILL.md`.
 With the skills CLI:
 
 ```bash
-npx skills add thisfrontenddev/skills/skills/review-gitlab
-npx skills add thisfrontenddev/skills/skills/review-github
+npx skills add https://github.com/thisfrontenddev/skills --skill review-gitlab
+npx skills add https://github.com/thisfrontenddev/skills --skill review-github
 ```
 
-The path after the repo name is resolved from the repo root, so the `skills/`
-directory is part of it — `thisfrontenddev/skills/review-github` finds nothing.
+Add `--skill '*'` for both, `--list` to see what the repo offers, or drop `--skill`
+to pick interactively. Remove with `npx skills remove --skill <name>`.
 
 Or clone and symlink a skill into your agent's skills directory:
 
 ```bash
-git clone https://github.com/<github-user>/skills.git
+git clone https://github.com/thisfrontenddev/skills.git
 ln -s "$(pwd)/skills/skills/review-gitlab" ~/.claude/skills/review-gitlab
 ```
 
